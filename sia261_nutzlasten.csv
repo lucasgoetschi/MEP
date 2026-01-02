@@ -1,0 +1,9 @@
+﻿Kategorie,Nutzung,qk_kN_m2,Beschreibung,Bemerkung
+A,Wohnräume,2.0,"Wohnhäuser, Wohnungen, Hotelzimmer",Flure in Wohngebäuden
+B,Büroflächen,3.0,"Büros, Sitzungszimmer",Korridore in Bürobauten
+C,Versammlungsräume,5.0,"Schulen, Restaurants, Kirchen",Turnhallen
+D,Verkaufsräume,4.0,"Läden, Einkaufszentren",Einkaufspassagen
+E,Lagerräume,7.5,"Archive, Lagerräume, Werkstätten",bis 10.0 kN/m² bei Schwerlast
+F,Fahrzeugflächen,3.0,"Garagen, Parkdecks",Autohöfe
+G,Dächer,1.5,Begehbare und befahrbare Dächer,1.0 – 3.0 je nach Nutzung
+H,Technische Räume,5.0,"Maschinenräume, Technikzentralen",Serverräume

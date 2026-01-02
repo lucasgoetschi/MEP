@@ -1,0 +1,54 @@
+ifc_file: temp.ifc
+output_folder: results
+space_psets:
+  allowed:
+  - Abhängigkeiten
+  - Abmessungen
+  - Energieanalyse
+  - ID-Daten
+  - Phasen
+  - Pset_AirSideSystemInformation
+  - Pset_ProductRequirements
+  - Pset_SpaceCommon
+  - Sonstige
+  raumname:
+  - Name
+  - Luftraum - Beitrag zu Beleuchtung
+  raumnummer:
+  - Nummer
+  geschoss: []
+  sia416:
+  - Nutzung_SIA416
+quantities:
+  flaeche:
+  - GrossFloorArea
+  - NetFloorArea
+  volumen:
+  - GrossVolume
+room_categories:
+  Wohnräume:
+    keywords:
+    - zimmer
+    - wc
+    - bad
+    qk: 2.0
+  Büroflächen:
+    keywords:
+    - büro
+    - office
+    qk: 3.0
+  Lagerräume:
+    keywords:
+    - lager
+    qk: 5.0
+  Verkaufsräume:
+    keywords:
+    - verkauf
+    - shop
+    qk: 4.0
+  Versammlungsräume:
+    keywords:
+    - saal
+    - versamml
+    qk: 5.0
+default_qk: 2.0
