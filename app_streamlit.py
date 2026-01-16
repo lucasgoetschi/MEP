@@ -1,255 +1,157 @@
-# ------------------------------------------------------------
-# app_streamlit.py | HSLU DC HS25 | Lucas Goetschi
-# StructView – Automatische IFC-Nutzlast- & Flächenanalyse
-# ------------------------------------------------------------
-
 import streamlit as st
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
+import matplotlib.colors as mcolors
 
-# Projektmodule
+# Import deiner Module
 from modules.config_loader import load_config_for_ifc
 from modules.ifc_reader import read_ifc_spaces
 from modules.data_handler import calculate_loads
-from modules.export_manager import (
-    export_excel_and_plots,
-    plot_area_by_use,
-    plot_loads_by_use,
-    plot_loads_by_storey,
-)
-from modules.statistics import compute_statistics, summarize_areas_by_category
-
+from modules.statistics import compute_statistics
+from modules.pdf_manager import create_pdf_report 
+from modules.export_manager import plot_area_by_use, plot_loads_by_storey
 
 # ------------------------------------------------------------
-# Page Config & Styling
+# 🎨 DESIGN & SCHRIFTGRÖSSE
 # ------------------------------------------------------------
-st.set_page_config(
-    page_title="StructView",
-    layout="wide",
-    page_icon="👷‍♂️",
-)
+st.set_page_config(page_title="StructView | HSLU", layout="wide", page_icon="🏗️")
 
-st.markdown(
-    """
+st.markdown("""
     <style>
-    html, body {
-        font-size: 17px;
-    }
-    h1, h2, h3 {
-        font-weight: 600;
-    }
-    .block-container {
-        padding-top: 2rem;
-    }
-    .stMetricValue {
-        font-size: 22px;
-        font-weight: 600;
-    }
+        html, body, [class*="st-at"] { font-size: 1.05rem !important; }
+        [data-testid="stMetricValue"] { font-size: 2.2rem !important; color: #1f77b4 !important; }
+        button[data-baseweb="tab"] { font-size: 1.15rem !important; font-weight: bold !important; }
     </style>
-    """,
-    unsafe_allow_html=True,
-)
+    """, unsafe_allow_html=True)
 
-st.title("👷‍♂️ StructView")
-st.caption(
-    "Automatische Nutzlast- und Flächenanalyse aus IFC | "
-    "HSLU Digital Construction | HS25 | Lucas Goetschi"
-)
-
-tabs = st.tabs(["🏠 Start", "📊 Ergebnisse & Diagramme", "📈 Dashboard"])
-
+def load_results_csv(path):
+    return pd.read_csv(path) if os.path.exists(path) else pd.DataFrame()
 
 # ------------------------------------------------------------
-# Helper
+# 📁 SIDEBAR
 # ------------------------------------------------------------
-def load_results_csv(path: str) -> pd.DataFrame:
-    if not os.path.exists(path):
-        return pd.DataFrame()
-    df = pd.read_csv(path)
-    df.columns = df.columns.str.strip()
-    return df
+with st.sidebar:
+    st.markdown("# 🏗️ StructView")
+    st.markdown("### HSLU Digital Construction")
+    st.divider()
+    uploaded_ifc = st.file_uploader("IFC Modell hochladen", type=["ifc"])
+    
+    if uploaded_ifc and st.button("🚀 Analyse starten", use_container_width=True):
+        with st.spinner("Extrahiere BIM-Daten..."):
+            temp_path = "temp.ifc"
+            with open(temp_path, "wb") as f: 
+                f.write(uploaded_ifc.getbuffer())
+            config = load_config_for_ifc(temp_path)
+            df_rooms = read_ifc_spaces(temp_path, config)
+            calculate_loads(df_rooms, config)
+            st.success("Analyse abgeschlossen!")
+            st.rerun()
 
+# ------------------------------------------------------------
+# 🏛️ HEADER (Titel links, Logo rechts oben)
+# ------------------------------------------------------------
+df = load_results_csv("results/raumlasten.csv")
 
-# ------------------------------------------------------------
-# 🏠 START
-# ------------------------------------------------------------
+head_col1, head_col2 = st.columns([4, 2])
+with head_col1:
+    st.title("👷‍♂️ StructView")
+with head_col2:
+    if os.path.exists("hslu_logo.png"):
+        st.image("hslu_logo.png", use_container_width=True)
+
+tabs = st.tabs(["📊 Projekt-Übersicht", "📈 Dashboard", "📘 Methodik & Anleitung"])
+
+# --- TAB 1: ÜBERSICHT ---
 with tabs[0]:
-    st.subheader("Projektstart")
-
-    with st.expander("📘 Anleitung & Hinweise", expanded=False):
-        st.markdown("""
-        **Zweck**  
-        StructView dient zur **automatisierten Auswertung von Nutzflächen und Nutzlasten**
-        aus IFC-Modellen gemäss **SIA 261**.
-
-        Einsatz:
-        - Vorstudien
-        - Variantenvergleiche
-        - Plausibilitätsprüfungen
-
-        **Kein Ersatz für eine statische Bemessung.**
-
-        **Ablauf**
-        1. IFC-Datei hochladen  
-        2. Analyse starten  
-        3. IFC-Parsing → Nutzungserkennung → Nutzlastberechnung  
-        4. Export von Tabellen und Diagrammen
-
-        **Limitation**
-        Ergebnisse sind normbasiert, vereinfacht und abhängig von der Modellqualität.
-        """)
-
-    st.divider()
-
-    uploaded_ifc = st.file_uploader("IFC-Datei auswählen", type=["ifc"])
-
-    if uploaded_ifc:
-        with open("temp.ifc", "wb") as f:
-            f.write(uploaded_ifc.getbuffer())
-
-        st.success("IFC-Datei erfolgreich hochgeladen.")
-
-        if st.button("▶ Analyse starten", use_container_width=True):
-            with st.spinner("Analyse läuft …"):
-                try:
-                    CONFIG = load_config_for_ifc("temp.ifc")
-                    st.session_state["config"] = CONFIG
-
-                    df_rooms = read_ifc_spaces("temp.ifc", CONFIG)
-                    if df_rooms.empty:
-                        st.error("Keine Räume im IFC gefunden.")
-                        st.stop()
-
-                    os.makedirs("results", exist_ok=True)
-                    df_rooms.to_csv("results/raumdaten.csv", index=False)
-
-                    df_loads = calculate_loads(
-                        raum_csv="results/raumdaten.csv",
-                        sia_csv="data/sia261_nutzlasten.csv",
-                        ifc_path="temp.ifc",
-                        config=CONFIG,
-                    )
-
-                    if df_loads.empty:
-                        st.error("Keine Nutzlasten berechnet.")
-                        st.stop()
-
-                    export_excel_and_plots("results/raumlasten.csv")
-
-                    st.session_state["analyzed"] = True
-                    st.success("Analyse abgeschlossen.")
-
-                except Exception as e:
-                    st.error(f"Fehler während der Analyse: {e}")
-
+    if not df.empty:
+        stats = compute_statistics(df)
+        m1, m2, m3, m4 = st.columns(4)
+        m1.metric("Gesamtlast", f"{stats.get('total_load_kn', 0):,.0f} kN")
+        m2.metric("Gesamtfläche", f"{stats.get('total_area_m2', 0):,.1f} m²")
+        m3.metric("Ø Nutzlast", f"{stats.get('avg_load_knm2', 0):,.2f} kN/m²")
+        if "Confidence" in df.columns:
+            m4.metric("Ø BIM-Sicherheit", f"{df['Confidence'].mean()*100:.1f} %")
+        
+        st.divider()
+        c_a, c_b = st.columns(2)
+        with c_a: 
+            fig_area = plot_area_by_use(df)
+            if fig_area: st.pyplot(fig_area)
+        with c_b: 
+            fig_storey = plot_loads_by_storey(df)
+            if fig_storey: st.pyplot(fig_storey)
     else:
-        st.info("Bitte IFC-Datei hochladen, um zu starten.")
+        st.info("Bitte IFC-Modell hochladen.")
 
-
-# ------------------------------------------------------------
-# 📊 ERGEBNISSE & DIAGRAMME
-# ------------------------------------------------------------
+# --- TAB 2: DASHBOARD ---
 with tabs[1]:
-    st.subheader("Ergebnisse & Diagramme")
+    if not df.empty:
+        st.subheader("Filter für Nutzungsvereinbarung")
+        f1, f2, f3 = st.columns(3)
+        s_geb = f1.selectbox("Gebäude", ["Alle"] + sorted(df["Gebäude"].dropna().unique().tolist()))
+        s_nutz = f2.selectbox("Nutzung", ["Alle"] + sorted(df["Nutzung"].dropna().unique().tolist()))
+        s_sto = f3.selectbox("Geschoss", ["Alle"] + sorted(df["Geschoss"].dropna().unique().tolist()))
+        
+        dff = df.copy()
+        if s_geb != "Alle": dff = dff[dff["Gebäude"] == s_geb]
+        if s_nutz != "Alle": dff = dff[dff["Nutzung"] == s_nutz]
+        if s_sto != "Alle": dff = dff[dff["Geschoss"] == s_sto]
 
-    if not st.session_state.get("analyzed"):
-        st.info("Bitte zuerst im Start-Tab eine Analyse durchführen.")
-        st.stop()
+        e1, e2 = st.columns(2)
+        with e1:
+            csv_data = dff.to_csv(index=False).encode('utf-8-sig')
+            st.download_button("📥 Gefilterte CSV laden", data=csv_data, file_name='Export_Filter.csv', use_container_width=True)
+        with e2:
+            f_stats = compute_statistics(dff)
+            try:
+                pdf_data = create_pdf_report(dff, f_stats)
+                st.download_button("📄 Gefiltertes PDF laden", data=pdf_data, file_name='Bericht_Filter.pdf', use_container_width=True)
+            except Exception as e:
+                st.error(f"Fehler beim PDF-Export: {e}")
 
-    df = load_results_csv("results/raumlasten.csv")
-    if df.empty:
-        st.warning("Keine Ergebnisse vorhanden.")
-        st.stop()
+        st.divider()
+        cols_nv = ["Raumnummer", "Raumname", "Geschoss", "Nutzung", "Fläche [m²]", "Nutzlast [kN/m²]"]
+        st.dataframe(dff[[c for c in cols_nv if c in dff.columns]], use_container_width=True, height=350)
+    else:
+        st.info("Keine Daten vorhanden.")
 
-    # Kennwerte
-    stats = compute_statistics(df)
-    if stats:
-        c1, c2, c3 = st.columns(3)
-        c1.metric("Gesamtfläche [m²]", f"{stats['Gesamtfläche [m²]']:,}")
-        c2.metric("Gesamtlast [kN]", f"{stats['Gesamtlast [kN]']:,}")
-        c3.metric("Ø Nutzlast [kN/m²]", f"{stats['Durchschnittliche Nutzlast [kN/m²]']}")
-
-    st.divider()
-
-    diagramm = st.radio(
-        "Diagramm auswählen",
-        [
-            "Fläche nach Nutzung",
-            "Gesamtlast nach Nutzung",
-            "Gesamtlast nach Geschoss",
-        ],
-        horizontal=True,
-    )
-
-    st.divider()
-
-    # ZENTRIERTES DIAGRAMM (links/rechts Leerraum)
-    col_left, col_center, col_right = st.columns([1, 2, 1])
-
-    with col_center:
-        if diagramm == "Fläche nach Nutzung":
-            fig = plot_area_by_use(df)
-            st.pyplot(fig)
-
-        elif diagramm == "Gesamtlast nach Nutzung":
-            fig = plot_loads_by_use(df)
-            st.pyplot(fig)
-
-        elif diagramm == "Gesamtlast nach Geschoss":
-            fig = plot_loads_by_storey(df)
-            st.pyplot(fig)
-
-
-# ------------------------------------------------------------
-# 📈 DASHBOARD
-# ------------------------------------------------------------
+# --- TAB 3: METHODIK & ANLEITUNG ---
 with tabs[2]:
-    st.subheader("Dashboard – Interaktive Auswertung")
+    st.header("Anleitung & Technische Dokumentation")
+    
+    st.subheader("Wichtige Hinweise zur Lastzusammenstellung")
+    st.warning("""
+        Die vorliegende Lastzusammenstellung wurde automatisiert auf Basis eines BIM-Modells erstellt. 
+        Die Ergebnisse dienen ausschliesslich der Vorbemessung und entbinden den verantwortlichen Tragwerksplaner 
+        nicht von der Pflicht zur manuellen Kontrolle gemäss SIA 261. Für aus der Nutzung dieser Daten entstehende 
+        Schäden wird jede Haftung abgelehnt.
+    """)
 
-    df = load_results_csv("results/raumlasten.csv")
-    if df.empty:
-        st.warning("Keine Daten verfügbar.")
-        st.stop()
-
-    c1, c2, c3 = st.columns(3)
-    gebaeude = c1.selectbox("Gebäude", ["Alle"] + sorted(df["Gebäude"].dropna().unique()))
-    nutzung = c2.selectbox("Nutzung", ["Alle"] + sorted(df["Nutzung"].dropna().unique()))
-    sortierung = c3.selectbox(
-        "Sortieren nach",
-        ["Gesamtlast [kN]", "Fläche [m²]", "Nutzlast [kN/m²]"],
-    )
-
-    if gebaeude != "Alle":
-        df = df[df["Gebäude"] == gebaeude]
-    if nutzung != "Alle":
-        df = df[df["Nutzung"] == nutzung]
-
-    m1, m2, m3 = st.columns(3)
-    m1.metric("Gesamtfläche [m²]", f"{df['Fläche [m²]'].sum():,.1f}")
-    m2.metric("Gesamtlast [kN]", f"{df['Gesamtlast [kN]'].sum():,.1f}")
-    m3.metric("Ø Nutzlast [kN/m²]", f"{df['Nutzlast [kN/m²]'].mean():,.2f}")
-
+    st.subheader("Was macht dieses Skript?")
+    st.markdown("""
+    Dieses Tool wurde entwickelt, um den Prozess der statischen Vorbemessung zu digitalisieren:
+    * **IFC-Datenextraktion:** Das Skript liest Raumobjekte (`IfcSpace`), Flächen und Metadaten direkt aus dem Architekturmodell aus.
+    * **Heuristische Klassifizierung:** Da Raumbeschreibungen oft ungenau sind, nutzt das Skript ein Weighted-Keyword-Scoring, um Räume automatisch Nutzungskategorien nach SIA zuzuweisen.
+    * **Lastzuweisung:** Basierend auf der identifizierten Nutzung werden die entsprechenden Nutzlasten $q_k$ gemäss SIA 261 zugewiesen und die Gesamteinwirkungen pro Raum berechnet.
+    * **Validierung:** Ein Confidence-Score gibt an, wie sicher die automatische Zuweisung erfolgt ist, um kritische Stellen im Modell schnell zu identifizieren.
+    """)
+    
+    if not df.empty:
+        st.subheader("BIM-Daten Qualitätscheck")
+        
+        # Erstellen einer helleren Farbskala für die Tabelle (Rot zu Grün)
+        cm = mcolors.LinearSegmentedColormap.from_list("custom_rdylgn", ["#ff9999", "#ffff99", "#99ff99"])
+        
+        st.dataframe(
+            df[["Raumname", "Nutzung", "Confidence"]].style.background_gradient(
+                subset=['Confidence'], 
+                cmap=cm, 
+                low=0, 
+                high=1
+            ).format({'Confidence': '{:.1%}'}), 
+            use_container_width=True
+        )
+    
     st.divider()
-
-    st.dataframe(
-        df[
-            ["Raumname", "Nutzung", "Geschoss",
-             "Fläche [m²]", "Nutzlast [kN/m²]", "Gesamtlast [kN]"]
-        ]
-        .sort_values(sortierung, ascending=False)
-        .reset_index(drop=True),
-        use_container_width=True,
-    )
-
-    # Top-10 Plot
-    df_plot = df.sort_values(sortierung, ascending=False).head(10)
-    if not df_plot.empty:
-        fig, ax = plt.subplots(figsize=(12, 6))
-        bars = ax.barh(df_plot["Raumname"], df_plot[sortierung])
-        ax.bar_label(bars, fmt="%.1f")
-        ax.set_xlabel(sortierung)
-        ax.set_title(f"Top 10 Räume nach {sortierung}")
-        ax.invert_yaxis()
-        plt.tight_layout()
-        st.pyplot(fig)
+    st.markdown(f"**Entwickler:** Lucas Goetschi | **Modul:** DT Programmieren | **HSLU**")

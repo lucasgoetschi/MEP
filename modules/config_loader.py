@@ -1,16 +1,24 @@
-import yaml
+# ------------------------------------------------------------
+# config_loader.py | MANAGEMENT DER KONFIGURATION
+# ------------------------------------------------------------
 import os
-from .auto_config_generator import auto_generate_config
+import yaml
+# Hier importieren wir den Generator – das ist OK, solange der Generator NICHT zurück importiert.
+from modules.auto_config_generator import auto_generate_config
 
 def load_config_for_ifc(ifc_path):
-    name = os.path.splitext(os.path.basename(ifc_path))[0]
-    cfg_path = f"config/{name}.yaml"
+    """Lädt bestehende Config oder triggert die automatische Erstellung."""
+    ifc_name = os.path.basename(ifc_path)
+    config_name = f"{os.path.splitext(ifc_name)[0]}.yaml"
+    config_path = os.path.join("config", config_name)
 
-    if os.path.exists(cfg_path):
-        with open(cfg_path, "r", encoding="utf-8") as f:
-            return yaml.safe_load(f)
+    # Falls Config nicht existiert -> Neu generieren
+    if not os.path.exists(config_path):
+        print(f"[LOADER] Keine Config gefunden. Starte Generator...")
+        config_path = auto_generate_config(ifc_path)
 
-    # Falls nicht vorhanden → automatisch erzeugen
-    new_cfg = auto_generate_config(ifc_path)
-    with open(new_cfg, "r", encoding="utf-8") as f:
-        return yaml.safe_load(f)
+    # Config einlesen
+    with open(config_path, "r", encoding="utf-8") as f:
+        config = yaml.safe_load(f)
+    
+    return config
