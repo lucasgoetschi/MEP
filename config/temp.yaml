@@ -5,6 +5,16 @@ room_categories:
     - büro
     - office
     - work
+    - arbeiten
+    - atelier
+    - sitzung
+    - besprechung
+    - meeting
+    - telefon
+    - kopierer
+    - print
+    - empfang
+    - rezeption
     qk: 3.0
     weight: 1.2
   Wohnräume:
@@ -15,6 +25,19 @@ room_categories:
     - bad
     - wc
     - küche
+    - dusche
+    - entree
+    - flur
+    - korridor
+    - ankleide
+    - esszimmer
+    - wohnzimmer
+    - kind
+    - gast
+    - essen
+    - kochen
+    - loggia
+    - balkon
     qk: 2.0
     weight: 1.0
   Lagerräume:
@@ -23,6 +46,15 @@ room_categories:
     - archiv
     - storage
     - depot
+    - abstell
+    - keller
+    - reduit
+    - vorrat
+    - magazin
+    - material
+    - entsorgung
+    - container
+    - entsorgung
     qk: 5.0
     weight: 1.1
   Verkaufsräume:
@@ -31,17 +63,29 @@ room_categories:
     - laden
     - shop
     - retail
+    - ausstellung
+    - markt
+    - kasse
+    - showroom
     qk: 4.0
     weight: 1.3
-  Flure / Erschliessung:
+  Erschliessung / Treppen:
     keywords:
-    - gang
-    - korr
     - treppe
     - lift
-    - entree
-    qk: 2.0
-    weight: 0.9
+    - aufzug
+    - podest
+    - rampe
+    - treppenhaus
+    - th
+    - gang
+    - galerie
+    - lobby
+    - vorplatz
+    - korridor
+    - durchgang
+    qk: 3.0
+    weight: 1.4
   Technische Räume:
     keywords:
     - technik
@@ -49,27 +93,73 @@ room_categories:
     - heizung
     - server
     - hls
+    - lüftung
+    - zentrale
+    - kälte
+    - warmwasser
+    - maschinen
+    - trafo
+    - sprinkler
+    - it
+    - elektra
     qk: 3.0
     weight: 1.2
-fallback_category: Allgemeine Flächen
+  Parkflächen:
+    keywords:
+    - parken
+    - garage
+    - tiefgarage
+    - pw
+    - abstellplatz
+    - einstellhalle
+    - carport
+    - parkplatz
+    - einstellplatz
+    qk: 2.5
+    weight: 1.5
+  Schulung / Unterricht:
+    keywords:
+    - schule
+    - unterricht
+    - klasse
+    - zimmer
+    - aula
+    - labor
+    - seminar
+    - kurs
+    qk: 3.0
+    weight: 1.1
+fallback_category: Allgemeine Nutzfläche
 fallback_qk: 3.0
 space_psets:
   raumname:
   - Name
   - Raumname
   - LongName
+  - Label
+  - Raumbezeichnung
   raumnummer:
   - Raumnummer
   - Nummer
+  - Number
+  - Tag
   geschoss:
   - Geschoss
   - Storey
   - Level
+  - Reference
+  sia416:
+  - SIA 416
+  - Category
+  - Nutzungsart
 quantities:
   flaeche:
   - Area
   - NetFloorArea
   - Nettofläche
+  - NetArea
+  - Fläche
   volumen:
   - Volume
   - NetVolume
+  - Bruttovolumen

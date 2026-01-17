@@ -1,81 +1,81 @@
-﻿Raumname,Raumnummer,Geschoss,Gebäude,Fläche [m²],Volumen [m³],SIA 416 Kategorie,Nutzung,Confidence,Nutzlast [kN/m²],Gesamtlast [kN]
-Einbringöffnung / Anlieferung,A02,UG01,Hauptgebäude,21.3497997963058,0.0,Nutzfläche,Allgemeine Flächen,0.0,3.0,64.0493993889174
-Technik (Sprinkler),A05,UG01,Hauptgebäude,8.37517141060771,0.0,Nutzfläche,Technische Räume,1.0,3.0,25.12551423182313
-Lift,A29,UG01,Hauptgebäude,5.353000130511025,0.0,Nutzfläche,Flure / Erschliessung,1.0,2.0,10.70600026102205
-Technik,A06,UG01,Hauptgebäude,3.104053314692337,0.0,Nutzfläche,Technische Räume,1.0,3.0,9.312159944077012
-Technik,A07,UG01,Hauptgebäude,33.4164801605127,0.0,Nutzfläche,Technische Räume,1.0,3.0,100.2494404815381
-"Waschen, Trocken",A08,UG01,Hauptgebäude,17.260499282845487,0.0,Nutzfläche,Allgemeine Flächen,0.0,3.0,51.78149784853646
-Vorraum,A04,UG01,Hauptgebäude,32.120098656171315,0.0,Nutzfläche,Allgemeine Flächen,0.0,3.0,96.36029596851395
-Technik,A03,UG01,Hauptgebäude,37.925433493846995,0.0,Nutzfläche,Technische Räume,1.0,3.0,113.77630048154099
-Technik (Energy-Hub),A09,UG01,Hauptgebäude,191.42537021090786,0.0,Nutzfläche,Technische Räume,1.0,3.0,574.2761106327235
-Technik,A13,UG01,Hauptgebäude,36.84777664159649,0.0,Nutzfläche,Technische Räume,1.0,3.0,110.54332992478948
-Technik,A16,UG01,Hauptgebäude,14.274336768742918,0.0,Nutzfläche,Technische Räume,1.0,3.0,42.82301030622875
-Technik,A11,UG01,Hauptgebäude,21.536748763030946,0.0,Nutzfläche,Technische Räume,1.0,3.0,64.61024628909284
-Vorraum,A12,UG01,Hauptgebäude,59.027466618989436,0.0,Nutzfläche,Allgemeine Flächen,0.0,3.0,177.08239985696832
-Technik (Eawag),A17,UG01,Hauptgebäude,95.48284365160679,0.0,Nutzfläche,Technische Räume,1.0,3.0,286.44853095482034
-Treppe West,A15,UG01,Hauptgebäude,14.003159307813249,0.0,Nutzfläche,Flure / Erschliessung,1.0,2.0,28.006318615626498
-Treppe Ost,A01,UG01,Hauptgebäude,13.66437506822636,0.0,Nutzfläche,Flure / Erschliessung,1.0,2.0,27.32875013645272
-Technik,017,EG00,Hauptgebäude,8.404123037128722,0.0,Nutzfläche,Technische Räume,1.0,3.0,25.212369111386167
-Lift,029,EG00,Hauptgebäude,5.3530013981063576,0.0,Nutzfläche,Flure / Erschliessung,1.0,2.0,10.706002796212715
-Technik,018,EG00,Hauptgebäude,4.79907011943866,0.0,Nutzfläche,Technische Räume,1.0,3.0,14.39721035831598
-Treppe Nord,015,EG00,Hauptgebäude,24.98446690788952,0.0,Nutzfläche,Flure / Erschliessung,1.0,2.0,49.96893381577904
-Sitzungszimmer,012,EG00,Hauptgebäude,43.16026420659564,0.0,Nutzfläche,Wohnräume,1.0,2.0,86.32052841319128
-Technik,011,EG00,Hauptgebäude,16.698499058337937,0.0,Nutzfläche,Technische Räume,1.0,3.0,50.09549717501381
-WC Herren,016,EG00,Hauptgebäude,12.218003419468825,0.0,Nutzfläche,Wohnräume,1.0,2.0,24.43600683893765
-WC Damen,013,EG00,Hauptgebäude,10.589503019623027,0.0,Nutzfläche,Wohnräume,1.0,2.0,21.179006039246055
-Lager,014,EG00,Hauptgebäude,10.297021899358953,0.0,Nutzfläche,Lagerräume,1.0,5.0,51.48510949679476
-Windfang,010,EG00,Hauptgebäude,20.62859856413235,0.0,Nutzfläche,Allgemeine Flächen,0.0,3.0,61.88579569239705
-Büro,004,EG00,Hauptgebäude,18.862016204577625,0.0,Nutzfläche,Büroflächen,1.0,3.0,56.58604861373287
-Empfang,003,EG00,Hauptgebäude,19.387840057430413,0.0,Nutzfläche,Allgemeine Flächen,0.0,3.0,58.16352017229124
-Windfang,001,EG00,Hauptgebäude,8.525738414738171,0.0,Nutzfläche,Allgemeine Flächen,0.0,3.0,25.577215244214514
-Atrium,002,EG00,Hauptgebäude,224.48876401459552,0.0,Nutzfläche,Allgemeine Flächen,0.0,3.0,673.4662920437866
-Treppe Süd,025,EG00,Hauptgebäude,22.738809798158876,0.0,Nutzfläche,Flure / Erschliessung,1.0,2.0,45.47761959631775
-Technik,021,EG00,Hauptgebäude,16.74376576897544,0.0,Nutzfläche,Technische Räume,1.0,3.0,50.23129730692632
-Sitzungszimmer,022,EG00,Hauptgebäude,42.97495668290341,0.0,Nutzfläche,Wohnräume,1.0,2.0,85.94991336580682
-Reinigung,026,EG00,Hauptgebäude,16.06012680617529,0.0,Nutzfläche,Allgemeine Flächen,0.0,3.0,48.18038041852587
-WC,023,EG00,Hauptgebäude,4.00354341105425,0.0,Nutzfläche,Wohnräume,1.0,2.0,8.0070868221085
-Reinigung,027,EG00,Hauptgebäude,10.292931206064763,0.0,Nutzfläche,Allgemeine Flächen,0.0,3.0,30.878793618194287
-Windfang,020,EG00,Hauptgebäude,19.196464134961282,0.0,Nutzfläche,Allgemeine Flächen,0.0,3.0,57.589392404883846
-Technik,024,EG00,Hauptgebäude,14.892125418225424,0.0,Nutzfläche,Technische Räume,1.0,3.0,44.67637625467627
-Lift,129,OG01,Hauptgebäude,5.353001454109029,0.0,Nutzfläche,Flure / Erschliessung,1.0,2.0,10.706002908218059
-WC,113,OG01,Hauptgebäude,4.313357947206433,0.0,Nutzfläche,Wohnräume,1.0,2.0,8.626715894412866
-WC,114,OG01,Hauptgebäude,4.051703529353224,0.0,Nutzfläche,Wohnräume,1.0,2.0,8.103407058706448
-Reinigung,213,OG02,Hauptgebäude,4.889249602126663,0.0,Nutzfläche,Allgemeine Flächen,0.0,3.0,14.667748806379988
-Lift,229,OG02,Hauptgebäude,5.352994644470047,0.0,Nutzfläche,Flure / Erschliessung,1.0,2.0,10.705989288940094
-Reinigung,214,OG02,Hauptgebäude,5.792083167562302,0.0,Nutzfläche,Allgemeine Flächen,0.0,3.0,17.376249502686903
-Technik,112,OG01,Hauptgebäude,4.889250116483531,0.0,Nutzfläche,Technische Räume,1.0,3.0,14.667750349450593
-Technik,111,OG01,Hauptgebäude,16.744000108373584,0.0,Nutzfläche,Technische Räume,1.0,3.0,50.23200032512075
-Technik,123,OG01,Hauptgebäude,9.051950810709302,0.0,Nutzfläche,Technische Räume,1.0,3.0,27.155852432127908
-Technik,122,OG01,Hauptgebäude,7.430449658200719,0.0,Nutzfläche,Technische Räume,1.0,3.0,22.29134897460216
-Technik,121,OG01,Hauptgebäude,16.74400372233041,0.0,Nutzfläche,Technische Räume,1.0,3.0,50.232011166991235
-Präsentation,101,OG01,Hauptgebäude,111.12374659987461,0.0,Nutzfläche,Allgemeine Flächen,0.0,3.0,333.3712397996238
-Treppe Nord,110,OG01,Hauptgebäude,68.5178118271794,0.0,Nutzfläche,Flure / Erschliessung,1.0,2.0,137.0356236543588
-Treppe Süd,120,OG01,Hauptgebäude,71.6110963051104,0.0,Nutzfläche,Flure / Erschliessung,1.0,2.0,143.2221926102208
-Büro,124,OG01,Hauptgebäude,534.4567395364028,0.0,Nutzfläche,Büroflächen,1.0,3.0,1603.3702186092082
-Technik,211,OG02,Hauptgebäude,16.74401036291328,0.0,Nutzfläche,Technische Räume,1.0,3.0,50.23203108873984
-Treppe Nord,210,OG02,Hauptgebäude,56.65661076587314,0.0,Nutzfläche,Flure / Erschliessung,1.0,2.0,113.31322153174628
-Technik,212,OG02,Hauptgebäude,2.7194788771807588,0.0,Nutzfläche,Technische Räume,1.0,3.0,8.158436631542276
-Aufenthaltsraum / Teeküche,201,OG02,Hauptgebäude,86.50273058327495,0.0,Nutzfläche,Wohnräume,1.0,2.0,173.0054611665499
-Reinigung,223,OG02,Hauptgebäude,4.604599742382478,0.0,Nutzfläche,Allgemeine Flächen,0.0,3.0,13.813799227147433
-Reinigung,222,OG02,Hauptgebäude,7.691089743584372,0.0,Nutzfläche,Allgemeine Flächen,0.0,3.0,23.073269230753116
-Technik,221,OG02,Hauptgebäude,16.743877828189266,0.0,Nutzfläche,Technische Räume,1.0,3.0,50.231633484567794
-WC,225,OG02,Hauptgebäude,4.306057700729977,0.0,Nutzfläche,Wohnräume,1.0,2.0,8.612115401459954
-WC,224,OG02,Hauptgebäude,4.051669793949318,0.0,Nutzfläche,Wohnräume,1.0,2.0,8.103339587898637
-Raum,116,OG02,Hauptgebäude,3.3319670220524316,0.0,Nutzfläche,Allgemeine Flächen,0.0,3.0,9.995901066157295
-Galerie,202,OG02,Hauptgebäude,19.889366474996315,0.0,Nutzfläche,Allgemeine Flächen,0.0,3.0,59.668099424988945
-Treppe Süd,220,OG02,Hauptgebäude,63.28328190638117,0.0,Nutzfläche,Flure / Erschliessung,1.0,2.0,126.56656381276234
-Terrasse,203,OG02,Hauptgebäude,27.19348734298606,0.0,Nutzfläche,Allgemeine Flächen,0.0,3.0,81.58046202895818
-Büro,226,OG02,Hauptgebäude,693.8063606350969,0.0,Nutzfläche,Büroflächen,1.0,3.0,2081.4190819052906
-"Catering, Küche",303,OG03,Hauptgebäude,15.98691646357646,0.0,Nutzfläche,Wohnräume,1.0,2.0,31.97383292715292
-Lift,329,OG03,Hauptgebäude,5.352997745764722,0.0,Nutzfläche,Flure / Erschliessung,1.0,2.0,10.705995491529444
-Technik,311,OG03,Hauptgebäude,16.81897747718911,0.0,Nutzfläche,Technische Räume,1.0,3.0,50.45693243156734
-Treppe Nord,310,OG03,Hauptgebäude,59.537361950437976,0.0,Nutzfläche,Flure / Erschliessung,1.0,2.0,119.07472390087595
-WC,312,OG03,Hauptgebäude,4.144283117025074,0.0,Nutzfläche,Wohnräume,1.0,2.0,8.288566234050148
-WC,313,OG03,Hauptgebäude,4.341970543147442,0.0,Nutzfläche,Wohnräume,1.0,2.0,8.683941086294883
-Technik,322,OG03,Hauptgebäude,7.554764531750399,0.0,Nutzfläche,Technische Räume,1.0,3.0,22.664293595251195
-Treppe Süd,320,OG03,Hauptgebäude,68.5976826560302,0.0,Nutzfläche,Flure / Erschliessung,1.0,2.0,137.1953653120604
-Technik,321,OG03,Hauptgebäude,16.820895589395818,0.0,Nutzfläche,Technische Räume,1.0,3.0,50.46268676818745
-Galerie,302,OG03,Hauptgebäude,18.584176501241853,0.0,Nutzfläche,Allgemeine Flächen,0.0,3.0,55.752529503725555
-Multifunktionsraum,301,OG03,Hauptgebäude,111.94681478222132,0.0,Nutzfläche,Allgemeine Flächen,0.0,3.0,335.84044434666396
-Büro,306,OG03,Hauptgebäude,694.7509562367155,0.0,Nutzfläche,Büroflächen,1.0,3.0,2084.2528687101467
-Raum,304,OG04,Hauptgebäude,5.352999699087499,0.0,Nutzfläche,Allgemeine Flächen,0.0,3.0,16.058999097262497
+Raumname,Raumnummer,Geschoss,Gebäude,Fläche [m²],Volumen [m³],SIA 416 Kategorie,Nutzung,Nutzlast [kN/m²],Confidence,Gesamtlast [kN]
+Einbringöffnung / Anlieferung,A02,UG01,Hauptgebäude,21.3497997963058,0.0,Nutzfläche,Allgemeine Nutzfläche,3.0,0.1,64.0493993889174
+Technik (Sprinkler),A05,UG01,Hauptgebäude,8.37517141060771,0.0,Nutzfläche,Technische Räume,3.0,1.0,25.12551423182313
+Lift,A29,UG01,Hauptgebäude,5.353000130511025,0.0,Nutzfläche,Erschliessung / Treppen,3.0,0.7,16.059000391533075
+Technik,A06,UG01,Hauptgebäude,3.104053314692337,0.0,Nutzfläche,Technische Räume,3.0,0.6,9.312159944077012
+Technik,A07,UG01,Hauptgebäude,33.4164801605127,0.0,Nutzfläche,Technische Räume,3.0,0.6,100.2494404815381
+"Waschen, Trocken",A08,UG01,Hauptgebäude,17.260499282845487,0.0,Nutzfläche,Allgemeine Nutzfläche,3.0,0.1,51.78149784853646
+Vorraum,A04,UG01,Hauptgebäude,32.120098656171315,0.0,Nutzfläche,Allgemeine Nutzfläche,3.0,0.1,96.36029596851395
+Technik,A03,UG01,Hauptgebäude,37.925433493846995,0.0,Nutzfläche,Technische Räume,3.0,0.6,113.77630048154099
+Technik (Energy-Hub),A09,UG01,Hauptgebäude,191.42537021090786,0.0,Nutzfläche,Technische Räume,3.0,0.6,574.2761106327235
+Technik,A13,UG01,Hauptgebäude,36.84777664159649,0.0,Nutzfläche,Technische Räume,3.0,0.6,110.54332992478948
+Technik,A16,UG01,Hauptgebäude,14.274336768742918,0.0,Nutzfläche,Technische Räume,3.0,0.6,42.82301030622875
+Technik,A11,UG01,Hauptgebäude,21.536748763030946,0.0,Nutzfläche,Technische Räume,3.0,0.6,64.61024628909284
+Vorraum,A12,UG01,Hauptgebäude,59.027466618989436,0.0,Nutzfläche,Allgemeine Nutzfläche,3.0,0.1,177.08239985696832
+Technik (Eawag),A17,UG01,Hauptgebäude,95.48284365160679,0.0,Nutzfläche,Technische Räume,3.0,0.6,286.44853095482034
+Treppe West,A15,UG01,Hauptgebäude,14.003159307813249,0.0,Nutzfläche,Erschliessung / Treppen,3.0,0.7,42.009477923439746
+Treppe Ost,A01,UG01,Hauptgebäude,13.66437506822636,0.0,Nutzfläche,Erschliessung / Treppen,3.0,0.7,40.993125204679075
+Technik,017,EG00,Hauptgebäude,8.404123037128722,0.0,Nutzfläche,Technische Räume,3.0,0.6,25.212369111386167
+Lift,029,EG00,Hauptgebäude,5.3530013981063576,0.0,Nutzfläche,Erschliessung / Treppen,3.0,0.7,16.059004194319073
+Technik,018,EG00,Hauptgebäude,4.79907011943866,0.0,Nutzfläche,Technische Räume,3.0,0.6,14.39721035831598
+Treppe Nord,015,EG00,Hauptgebäude,24.98446690788952,0.0,Nutzfläche,Erschliessung / Treppen,3.0,0.7,74.95340072366855
+Sitzungszimmer,012,EG00,Hauptgebäude,43.16026420659564,0.0,Nutzfläche,Büroflächen,3.0,0.6,129.48079261978694
+Technik,011,EG00,Hauptgebäude,16.698499058337937,0.0,Nutzfläche,Technische Räume,3.0,0.6,50.09549717501381
+WC Herren,016,EG00,Hauptgebäude,12.218003419468825,0.0,Nutzfläche,Wohnräume,2.0,0.5,24.43600683893765
+WC Damen,013,EG00,Hauptgebäude,10.589503019623027,0.0,Nutzfläche,Wohnräume,2.0,0.5,21.179006039246055
+Lager,014,EG00,Hauptgebäude,10.297021899358953,0.0,Nutzfläche,Lagerräume,5.0,0.55,51.48510949679476
+Windfang,010,EG00,Hauptgebäude,20.62859856413235,0.0,Nutzfläche,Allgemeine Nutzfläche,3.0,0.1,61.88579569239705
+Büro,004,EG00,Hauptgebäude,18.862016204577625,0.0,Nutzfläche,Büroflächen,3.0,0.6,56.58604861373287
+Empfang,003,EG00,Hauptgebäude,19.387840057430413,0.0,Nutzfläche,Büroflächen,3.0,0.6,58.16352017229124
+Windfang,001,EG00,Hauptgebäude,8.525738414738171,0.0,Nutzfläche,Allgemeine Nutzfläche,3.0,0.1,25.577215244214514
+Atrium,002,EG00,Hauptgebäude,224.48876401459552,0.0,Nutzfläche,Allgemeine Nutzfläche,3.0,0.1,673.4662920437866
+Treppe Süd,025,EG00,Hauptgebäude,22.738809798158876,0.0,Nutzfläche,Erschliessung / Treppen,3.0,0.7,68.21642939447662
+Technik,021,EG00,Hauptgebäude,16.74376576897544,0.0,Nutzfläche,Technische Räume,3.0,0.6,50.23129730692632
+Sitzungszimmer,022,EG00,Hauptgebäude,42.97495668290341,0.0,Nutzfläche,Büroflächen,3.0,0.6,128.92487004871023
+Reinigung,026,EG00,Hauptgebäude,16.06012680617529,0.0,Nutzfläche,Allgemeine Nutzfläche,3.0,0.1,48.18038041852587
+WC,023,EG00,Hauptgebäude,4.00354341105425,0.0,Nutzfläche,Wohnräume,2.0,0.5,8.0070868221085
+Reinigung,027,EG00,Hauptgebäude,10.292931206064763,0.0,Nutzfläche,Allgemeine Nutzfläche,3.0,0.1,30.878793618194287
+Windfang,020,EG00,Hauptgebäude,19.196464134961282,0.0,Nutzfläche,Allgemeine Nutzfläche,3.0,0.1,57.589392404883846
+Technik,024,EG00,Hauptgebäude,14.892125418225424,0.0,Nutzfläche,Technische Räume,3.0,0.6,44.67637625467627
+Lift,129,OG01,Hauptgebäude,5.353001454109029,0.0,Nutzfläche,Erschliessung / Treppen,3.0,0.7,16.059004362327087
+WC,113,OG01,Hauptgebäude,4.313357947206433,0.0,Nutzfläche,Wohnräume,2.0,0.5,8.626715894412866
+WC,114,OG01,Hauptgebäude,4.051703529353224,0.0,Nutzfläche,Wohnräume,2.0,0.5,8.103407058706448
+Reinigung,213,OG02,Hauptgebäude,4.889249602126663,0.0,Nutzfläche,Allgemeine Nutzfläche,3.0,0.1,14.667748806379988
+Lift,229,OG02,Hauptgebäude,5.352994644470047,0.0,Nutzfläche,Erschliessung / Treppen,3.0,0.7,16.05898393341014
+Reinigung,214,OG02,Hauptgebäude,5.792083167562302,0.0,Nutzfläche,Allgemeine Nutzfläche,3.0,0.1,17.376249502686903
+Technik,112,OG01,Hauptgebäude,4.889250116483531,0.0,Nutzfläche,Technische Räume,3.0,0.6,14.667750349450593
+Technik,111,OG01,Hauptgebäude,16.744000108373584,0.0,Nutzfläche,Technische Räume,3.0,0.6,50.23200032512075
+Technik,123,OG01,Hauptgebäude,9.051950810709302,0.0,Nutzfläche,Technische Räume,3.0,0.6,27.155852432127908
+Technik,122,OG01,Hauptgebäude,7.430449658200719,0.0,Nutzfläche,Technische Räume,3.0,0.6,22.29134897460216
+Technik,121,OG01,Hauptgebäude,16.74400372233041,0.0,Nutzfläche,Technische Räume,3.0,0.6,50.232011166991235
+Präsentation,101,OG01,Hauptgebäude,111.12374659987461,0.0,Nutzfläche,Allgemeine Nutzfläche,3.0,0.1,333.3712397996238
+Treppe Nord,110,OG01,Hauptgebäude,68.5178118271794,0.0,Nutzfläche,Erschliessung / Treppen,3.0,0.7,205.5534354815382
+Treppe Süd,120,OG01,Hauptgebäude,71.6110963051104,0.0,Nutzfläche,Erschliessung / Treppen,3.0,0.7,214.8332889153312
+Büro,124,OG01,Hauptgebäude,534.4567395364028,0.0,Nutzfläche,Büroflächen,3.0,0.6,1603.3702186092082
+Technik,211,OG02,Hauptgebäude,16.74401036291328,0.0,Nutzfläche,Technische Räume,3.0,0.6,50.23203108873984
+Treppe Nord,210,OG02,Hauptgebäude,56.65661076587314,0.0,Nutzfläche,Erschliessung / Treppen,3.0,0.7,169.9698322976194
+Technik,212,OG02,Hauptgebäude,2.7194788771807588,0.0,Nutzfläche,Technische Räume,3.0,0.6,8.158436631542276
+Aufenthaltsraum / Teeküche,201,OG02,Hauptgebäude,86.50273058327495,0.0,Nutzfläche,Wohnräume,2.0,0.5,173.0054611665499
+Reinigung,223,OG02,Hauptgebäude,4.604599742382478,0.0,Nutzfläche,Allgemeine Nutzfläche,3.0,0.1,13.813799227147433
+Reinigung,222,OG02,Hauptgebäude,7.691089743584372,0.0,Nutzfläche,Allgemeine Nutzfläche,3.0,0.1,23.073269230753116
+Technik,221,OG02,Hauptgebäude,16.743877828189266,0.0,Nutzfläche,Technische Räume,3.0,0.6,50.231633484567794
+WC,225,OG02,Hauptgebäude,4.306057700729977,0.0,Nutzfläche,Wohnräume,2.0,0.5,8.612115401459954
+WC,224,OG02,Hauptgebäude,4.051669793949318,0.0,Nutzfläche,Wohnräume,2.0,0.5,8.103339587898637
+Raum,116,OG02,Hauptgebäude,3.3319670220524316,0.0,Nutzfläche,Allgemeine Nutzfläche,3.0,0.1,9.995901066157295
+Galerie,202,OG02,Hauptgebäude,19.889366474996315,0.0,Nutzfläche,Erschliessung / Treppen,3.0,0.7,59.668099424988945
+Treppe Süd,220,OG02,Hauptgebäude,63.28328190638117,0.0,Nutzfläche,Erschliessung / Treppen,3.0,0.7,189.8498457191435
+Terrasse,203,OG02,Hauptgebäude,27.19348734298606,0.0,Nutzfläche,Allgemeine Nutzfläche,3.0,0.1,81.58046202895818
+Büro,226,OG02,Hauptgebäude,693.8063606350969,0.0,Nutzfläche,Büroflächen,3.0,0.6,2081.4190819052906
+"Catering, Küche",303,OG03,Hauptgebäude,15.98691646357646,0.0,Nutzfläche,Wohnräume,2.0,0.5,31.97383292715292
+Lift,329,OG03,Hauptgebäude,5.352997745764722,0.0,Nutzfläche,Erschliessung / Treppen,3.0,0.7,16.058993237294167
+Technik,311,OG03,Hauptgebäude,16.81897747718911,0.0,Nutzfläche,Technische Räume,3.0,0.6,50.45693243156734
+Treppe Nord,310,OG03,Hauptgebäude,59.537361950437976,0.0,Nutzfläche,Erschliessung / Treppen,3.0,0.7,178.61208585131394
+WC,312,OG03,Hauptgebäude,4.144283117025074,0.0,Nutzfläche,Wohnräume,2.0,0.5,8.288566234050148
+WC,313,OG03,Hauptgebäude,4.341970543147442,0.0,Nutzfläche,Wohnräume,2.0,0.5,8.683941086294883
+Technik,322,OG03,Hauptgebäude,7.554764531750399,0.0,Nutzfläche,Technische Räume,3.0,0.6,22.664293595251195
+Treppe Süd,320,OG03,Hauptgebäude,68.5976826560302,0.0,Nutzfläche,Erschliessung / Treppen,3.0,0.7,205.7930479680906
+Technik,321,OG03,Hauptgebäude,16.820895589395818,0.0,Nutzfläche,Technische Räume,3.0,0.6,50.46268676818745
+Galerie,302,OG03,Hauptgebäude,18.584176501241853,0.0,Nutzfläche,Erschliessung / Treppen,3.0,0.7,55.752529503725555
+Multifunktionsraum,301,OG03,Hauptgebäude,111.94681478222132,0.0,Nutzfläche,Allgemeine Nutzfläche,3.0,0.1,335.84044434666396
+Büro,306,OG03,Hauptgebäude,694.7509562367155,0.0,Nutzfläche,Büroflächen,3.0,0.6,2084.2528687101467
+Raum,304,OG04,Hauptgebäude,5.352999699087499,0.0,Nutzfläche,Allgemeine Nutzfläche,3.0,0.1,16.058999097262497

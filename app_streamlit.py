@@ -84,7 +84,7 @@ with tabs[0]:
     else:
         st.info("Bitte IFC-Modell hochladen.")
 
-# --- TAB 2: DASHBOARD ---
+# --- TAB 2: DASHBOARD (Filter & GERICHTETER EXPORT) ---
 with tabs[1]:
     if not df.empty:
         st.subheader("Filter für Nutzungsvereinbarung")
@@ -93,11 +93,13 @@ with tabs[1]:
         s_nutz = f2.selectbox("Nutzung", ["Alle"] + sorted(df["Nutzung"].dropna().unique().tolist()))
         s_sto = f3.selectbox("Geschoss", ["Alle"] + sorted(df["Geschoss"].dropna().unique().tolist()))
         
+        # Daten filtern
         dff = df.copy()
         if s_geb != "Alle": dff = dff[dff["Gebäude"] == s_geb]
         if s_nutz != "Alle": dff = dff[dff["Nutzung"] == s_nutz]
         if s_sto != "Alle": dff = dff[dff["Geschoss"] == s_sto]
 
+        # Export-Buttons
         e1, e2 = st.columns(2)
         with e1:
             csv_data = dff.to_csv(index=False).encode('utf-8-sig')
@@ -111,8 +113,29 @@ with tabs[1]:
                 st.error(f"Fehler beim PDF-Export: {e}")
 
         st.divider()
+        
+        # Tabelle anzeigen
         cols_nv = ["Raumnummer", "Raumname", "Geschoss", "Nutzung", "Fläche [m²]", "Nutzlast [kN/m²]"]
         st.dataframe(dff[[c for c in cols_nv if c in dff.columns]], use_container_width=True, height=350)
+        
+        # --- LASTEN-RANKING DIAGRAMM ---
+        st.subheader("Lasten-Ranking der aktuellen Auswahl")
+        if not dff.empty:
+            fig_rank, ax_rank = plt.subplots(figsize=(10, 4))
+            # Top 15 Räume nach Gesamtlast sortiert
+            ranking_data = dff.groupby("Raumname")["Gesamtlast [kN]"].sum().sort_values(ascending=False).head(15)
+            
+            if not ranking_data.empty:
+                ranking_data.plot(kind='bar', ax=ax_rank, color='#1f77b4')
+                ax_rank.set_ylabel("Gesamtlast [kN]", fontsize=12)
+                ax_rank.set_xlabel("Raumname", fontsize=12)
+                plt.xticks(rotation=45, ha='right')
+                st.pyplot(fig_rank)
+            else:
+                st.write("Keine Daten für Ranking vorhanden.")
+        else:
+            st.warning("Keine Daten in der aktuellen Auswahl.")
+
     else:
         st.info("Keine Daten vorhanden.")
 
@@ -139,8 +162,7 @@ with tabs[2]:
     
     if not df.empty:
         st.subheader("BIM-Daten Qualitätscheck")
-        
-        # Erstellen einer helleren Farbskala für die Tabelle (Rot zu Grün)
+        # Pastell-Farbskala für Confidence-Score
         cm = mcolors.LinearSegmentedColormap.from_list("custom_rdylgn", ["#ff9999", "#ffff99", "#99ff99"])
         
         st.dataframe(
